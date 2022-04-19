@@ -1,11 +1,17 @@
 class Hangman {
   constructor(words) {
     this.words = words;
-    // ... your code goes here
+    this.secretWord = secretWord;
+    this.letters = [];
+    this.guessedLetters = "";
+    this.errorsLeft = 10; // ... your code goes here
   }
 
   pickWord() {
     // ... your code goes here
+    return this.secretWord[
+      Math.floor(Math.random(this.words) * this.words.length)
+    ];
   }
 
   checkIfLetter(keyCode) {
@@ -35,11 +41,19 @@ class Hangman {
 
 let hangman;
 
-const startGameButton = document.getElementById('start-game-button');
+const startGameButton = document.getElementById("start-game-button");
 
 if (startGameButton) {
-  startGameButton.addEventListener('click', event => {
-    hangman = new Hangman(['node', 'javascript', 'react', 'miami', 'paris', 'amsterdam', 'lisboa']);
+  startGameButton.addEventListener("click", (event) => {
+    hangman = new Hangman([
+      "node",
+      "javascript",
+      "react",
+      "miami",
+      "paris",
+      "amsterdam",
+      "lisboa",
+    ]);
 
     // HINT (uncomment when start working on the canvas portion of the lab)
     // hangman.secretWord = hangman.pickWord();
@@ -49,7 +63,7 @@ if (startGameButton) {
   });
 }
 
-document.addEventListener('keydown', event => {
+document.addEventListener("keydown", (event) => {
   // React to user pressing a key
   // ... your code goes here
 });
